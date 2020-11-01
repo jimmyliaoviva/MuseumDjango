@@ -1,0 +1,73 @@
+{% extends 'master.html' %}
+
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/all.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+{% endblock %}
+
+{% block title %}博物館系統{% endblock %}
+
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        {#    logo 在這裡 #}
+        <a class="navbar-brand" href="#"><img src="/static/img/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item mr-4 mt-2">
+                    <a class="navbar-brand" href=""><h4>關於我們</h4></a>
+                </li>
+                {#            這邊保留給登入系統#}
+                <li class="nav-item mr-5 mt-2">
+                    {% if request.user.is_authenticated %}
+                        <a class="navbar-brand " href="" tabindex="-1" aria-disabled="true"><h4>登出</h4></a>
+                    {% else %}
+                        <a class="navbar-brand " href="" tabindex="-1" aria-disabled="true"><h4>登入</h4></a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    {#    遮罩#}
+    <div class="mask"></div>
+    <div class="searchWrapper">
+        <div class="searchTitle">你想去哪裡？</div>
+        <div class="outerWrapper">
+            <div class="countryWrapper">
+                <label for="countrySearch">國家</label>
+                <label for="citySearch">城市</label>
+                <br>
+                <input type="text" name="countrySearch" class="countrySearch" value="">
+                <input type="text" name="citySearch" class="citySearch" value="">
+            </div>
+            <i class="fas fa-search"></i>
+        </div>
+        <br>
+        <div class="outerWrapper">
+            <div class="museumWrapper">
+                <label for="museumSearch">博物館名稱</label>
+                <br>
+                <input type="text" class="museumSearch" value=""/>
+            </div>
+            <i class="fas fa-search"></i>
+        </div>
+
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{% static "js/backstretch.min.js" %}"></script>
+    <script>
+        $.backstretch([
+            "{%  static "img/bg.jpg" %}"
+        ]);
+    </script>
+{% endblock %}
