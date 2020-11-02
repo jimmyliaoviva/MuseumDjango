@@ -58,13 +58,16 @@ nav h4 {
 
 input.countrySearch, .citySearch, .museumSearch {
     position: relative;
-    /*height: 2em;*/
     width: 49%;
     padding-left: 1em;
     font-size: 2em;
     background-color: transparent;
     border: transparent;
     border-radius: 999em;
+}
+
+input:focus {
+    outline: none;
 }
 
 .museumWrapper {
@@ -85,4 +88,38 @@ input.countrySearch, .citySearch, .museumSearch {
     line-height: 60px;
     color: #5A3919;
     font-size: 3em;
+}
+
+#loginPop {
+    text-align: center;
+}
+
+.popImgWrapper {
+    width: 100%;
+}
+
+.popImgWrapper img {
+    height: 50px;
+}
+
+.modal-dialog {
+    width: 30%;
+    color: #5A3919;
+}
+
+.modal-body {
+    padding: 0 5em 2em 5em;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.loginBtn {
+    width: 100%;
+    border-radius: 999em;
+    background-color: #D7CEC7;
+    border: none;
+    color: #5A3919;
+    font-weight: 700;
 }
