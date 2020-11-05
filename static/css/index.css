@@ -56,6 +56,16 @@ nav h4 {
     margin: 0;
 }
 
+.countrySearch, .citySearch {
+    position: relative;
+    width: 49%;
+    padding-left: 1em;
+    font-size: 2em;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 999em;
+}
+
 input.countrySearch, .citySearch, .museumSearch {
     position: relative;
     width: 49%;
