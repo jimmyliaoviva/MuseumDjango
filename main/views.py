@@ -8,3 +8,7 @@ def test(request):
 
 def index(request):
     return render(request, 'index.html')
+
+
+def museums(request):
+    return render(request, 'museums.html')
