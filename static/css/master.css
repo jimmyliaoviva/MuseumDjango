@@ -5,3 +5,20 @@
 body {
     background-color: #E3DCD7;
 }
+
+.searchBtn {
+    text-align: right;
+    height: 2.5em;
+    width: 30vw;
+    /*background-color: #0f6674;*/
+    border: grey solid 1px;
+    border-radius: 999em;
+    padding-right: 1em;
+    vertical-align: middle;
+    /*font-size: 1em;*/
+}
+
+.fa-search {
+    font-size: 1.5em;
+}
+
