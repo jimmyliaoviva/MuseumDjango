@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
+
 # 匯入各功能的url
 from django.conf.urls import include
 
