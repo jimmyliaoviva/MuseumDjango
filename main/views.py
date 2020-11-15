@@ -12,3 +12,7 @@ def index(request):
 
 def museums(request):
     return render(request, 'museums.html')
+
+
+def museum(request):
+    return render(request, 'museum.html')

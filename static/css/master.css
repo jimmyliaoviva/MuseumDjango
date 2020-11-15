@@ -5,12 +5,13 @@
 
 .container {
     border: 2px brown;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%;
-  max-width: 1140px;      // 隨螢幕尺寸而變，當螢幕尺寸 ≥ 1200px 時是 1140px。
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+    max-width: 1140px;/*隨螢幕尺寸而變，當螢幕尺寸 ≥ 1200px 時是 1140px。*/
+}
 
 body {
     background-color: #E3DCD7;
@@ -32,3 +33,6 @@ body {
     font-size: 1.5em;
 }
 
+img {
+    width: 100%;
+}

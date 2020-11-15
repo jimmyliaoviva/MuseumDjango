@@ -1,0 +1,45 @@
+{% extends 'master.html' %}
+{% block title %} 博物館頁面 {% endblock %}
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/all.min.css" %}">
+
+    <link rel="stylesheet" href="{% static "css/museum.css" %}">
+{% endblock %}
+
+
+{#</head>#}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 imgWrapper">
+                <img src="{% static "img/palace.jpg" %}" alt="">
+            </div>
+            <div class="col-6 museum">
+                <div class="museumName">國立故宮博物院</div>
+                <div class="museumAddress">台北市士林區至善路二段221號</div>
+            </div>
+        </div>
+        <div class="col-12 introWrapper">
+            <div class="row museumIntro">
+                <div class="title">館方簡介：</div>
+                <div class="content">國立故宮博物院典藏為數近70萬件冊的藝術品和文物，藏品時間跨 度涵蓋新石器時代至今長達8,000年。當中以長篇銘文的青銅器、
+                    古代早期的名家書畫、善本古籍和官窯瓷器等蒐藏最具影響力。
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row commentTitle">經驗分享</div>
+        <div class="commentBlock">
+            <div class="row comment">
+                <div class="imgWrapper col-2">
+                    <img src="" alt="">
+                </div>
+                <div class="col-10">
+                    <div class="userName">雷丘</div>
+                    <div class="commentContent">萬聖節快樂～</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,17 +1,10 @@
 {% extends 'master.html' %}
 {% block title %} 搜尋頁面 {% endblock %}
-{#<!DOCTYPE html>#}
-{#<html lang="zh-Hant">#}
-{#<head>#}
-{#  這一段是匯入js css  #}
-{#    {% load static %}#}
-{#    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">#}
-{#    <link rel="stylesheet" href="{% static "css/master.css" %}">#}
 {% block css %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "css/all.min.css" %}">
 
-    <link rel="stylesheet" href="{% static "css/museum.css" %}">
+    <link rel="stylesheet" href="{% static "css/museums.css" %}">
 {% endblock %}
 
 
@@ -20,16 +13,30 @@
     <div class="container">
         <div class="item row">
             <div class="imgWrapper col-2 block1"></div>
-            <div class="col-3 block2">
+            <div class="col-3 block">
                 <span class="wordtext">國立故宮博物院</span>
             </div>
-            <div class="col-4 block3">
+            <div class="col-6 block">
                 <div class="icon"><i class="fas fa-compass"></i></div>
                 <div class="address"><span>台北市士林區至善路二段221號</span></div>
             </div>
-
-            <i class="far fa-arrow-alt-circle-right " ></i>
-
+            <div class="arrowBlock col-1 block">
+                <i class="far fa-arrow-alt-circle-right "></i>
+            </div>
+        </div>
+        {#        #}
+        <div class="item row">
+            <div class="imgWrapper col-2 block1"></div>
+            <div class="col-3 block">
+                <span class="wordtext">國立故宮博物院</span>
+            </div>
+            <div class="col-6 block">
+                <div class="icon"><i class="fas fa-compass"></i></div>
+                <div class="address"><span>台北市士林區至善路二段221號</span></div>
+            </div>
+            <div class="arrowBlock col-1 block">
+                <i class="far fa-arrow-alt-circle-right "></i>
+            </div>
         </div>
     </div>
 {% endblock %}

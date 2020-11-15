@@ -1,75 +1,17 @@
-.container {
-    text-align: center;
-
+.introWrapper {
+    padding-top: 1em;
 }
 
-.item {
-    border: #5A3919 3px solid;
-    height: 50px;
-    width: 90%;
-    /*background-color: #005cbf;*/
-    margin: auto;
-    border-radius: 10px;
-}
-
-.block1 {
-    background-image: url("/static/img/palace.jpg");
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center center;
-    /*background-repeat: no-repeat;*/
-}
-
-/*.img {*/
-/*    height: 300px;*/
-/*    width: 270px;*/
-/*    float: left;*/
-/*    margin: 10px;*/
-/*}*/
-
-.row {
-    /*    top: 376px;*/
-    /*left: 140px;*/
-    /*width: 1589px;*/
-    height: 100px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+.museumIntro {
     border: 3px solid #5A3919;
     border-radius: 10px;
+    padding: 1em;
+}
+
+
+.commentContent {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #5A3919;
+    border-radius: 10px;
     opacity: 1;
-    margin: auto;
-}
-
-.block2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.block2 span{
-    /*font-size: 45px;*/
-}
-.block3 {
-
-    white-space:nowrap;
-    float: left;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-wrap:break-word;
-}
-.block3 .icon {
- float: left;
-    width: 10%;
-    padding-right: 0px;
-    margin-right: 0px;
-    display:inline-block;
-}
-.block3 .address{
- float: left;
-    width: 90%;
-    text-align: left;
-/*font-size: 32px;*/
-    display:inline-block;
-
 }
