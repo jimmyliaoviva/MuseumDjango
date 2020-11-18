@@ -36,3 +36,8 @@ body {
 img {
     width: 100%;
 }
+
+.logo {
+    height: 50px;
+    width: 53px;
+}
