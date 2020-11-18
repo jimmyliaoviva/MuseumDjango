@@ -1,0 +1,77 @@
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin-top: 30px;
+    padding: 30px;
+    border: 3px #5A3919 solid;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.museumWrapper {
+    border-radius: 10px;
+}
+
+/*.museum {*/
+/*@extend % box text-align: center;*/
+/*}*/
+
+.infoWrapper {
+    margin-left: 3em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-80%);
+}
+
+.museumName {
+    font-size: 3em;
+    /*margin-left: 1em;*/
+}
+
+.imgWrapper {
+    overflow: hidden;
+    /*padding: 0;*/
+}
+
+.col-6 {
+    padding: 0;
+}
+
+
+.introWrapper {
+    padding-top: 1em;
+    padding-left: 0;
+}
+
+.museumIntro {
+    border: 3px solid #5A3919;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+.comment {
+    margin-top: 1em;
+}
+
+.commentContent {
+    padding: 1em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #5A3919;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.headWrapper {
+    /*height: 5em;*/
+    width: 3px;
+    border-radius: 999em;
+    border: #5A3919 solid 1px;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
