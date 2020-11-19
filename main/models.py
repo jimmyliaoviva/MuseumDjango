@@ -23,3 +23,4 @@ class Museum(models.Model):
     img = models.ImageField()
     nation = models.ForeignKey(Nation, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+
