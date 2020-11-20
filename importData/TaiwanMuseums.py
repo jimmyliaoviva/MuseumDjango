@@ -30,7 +30,7 @@ with open('taiwanMuseums.json', 'r', encoding="utf-8") as output:
         print(museum['Address'])
         print(museum['Description'])
         print('Taiwan')
-        print(museum[''])
+        print(museum['City'])
 
 # unit = Company()
 # unit.company_name = data['company_name']
