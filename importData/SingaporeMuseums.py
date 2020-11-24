@@ -16,24 +16,22 @@ with open('singaporeMuseums.json', 'r', encoding="utf-8") as output:
     data = json.load(output)
     for museum in data:
         # 圖片
-        print(museum['PHOTOURL'])
-        print(museum['NAME'])
-        print(museum['HYPERLINK'])
-        print(museum['longitude'])
-        print(museum['latitude'])
-        print(museum['Address'])
-        print(museum['Description'])
-        print(museum['Description'])
-        print('singapore')
-        print('Singapore')
-        # print(museum['Description'])
-        # try:
-        #     print(museum['Name'], museum['Photos'][0]['FilePath'])
-        # except:
-        #     print(museum['Name'], 'No photo')
-# unit = Company()
-# unit.company_name = data['company_name']
-# unit.company_stock = data['company_stock']
-# unit.industry = data['industry']
-# unit.csr_topics = data['csr_topics']
-# unit.save()
+        photos = museum['PHOTOURL']
+        name = museum['NAME']
+        website = museum['HYPERLINK']
+        long = museum['longitude']
+        lat = museum['latitude']
+        address = museum['Address']
+        introduce = museum['Description']
+
+        unit = Museum()
+        unit.website = website
+        unit.address = address
+        unit.img = photos
+        unit.city = City.objects.get(cid=112)
+        unit.nation = Nation.objects.get(nid=65)
+        unit.introduce = introduce
+        unit.longitude = long
+        unit.latitude = lat
+        unit.mname = name
+        unit.save()
