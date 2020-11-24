@@ -17,24 +17,30 @@ with open('taiwanMuseums.json', 'r', encoding="utf-8") as output:
     data = json.load(output)
     for museum in data:
         try:
-            print(museum['Photos'][0]['FilePath'])
+            photos = museum['Photos'][0]['FilePath']
         except:
-            print('No photo')
-        print(museum['Name'])
+            photo = 'No photo'
+        name = museum['Name']
         try:
-            print(museum['Medies'][0]['Url'])
+            website = museum['Medies'][0]['Url']
         except:
-            print('no url')
-        print(museum['Longitude'])
-        print(museum['Latitude'])
-        print(museum['Address'])
-        print(museum['Description'])
-        print('Taiwan')
-        print(museum['City'])
+            website = ''
+        long = museum['Longitude']
+        lat = museum['Latitude']
+        address = museum['Address']
+        introduce = museum['Description']
+        nation = 886
+        city = museum['City']
 
-# unit = Company()
-# unit.company_name = data['company_name']
-# unit.company_stock = data['company_stock']
-# unit.industry = data['industry']
-# unit.csr_topics = data['csr_topics']
-# unit.save()
+        print(museum['Name'])
+        unit = Museum()
+        unit.website = website
+        unit.address = address
+        unit.img = photos
+        unit.city = City.objects.get(cid=city)
+        unit.nation = Nation.objects.get(nid=886)
+        unit.introduce = introduce
+        unit.longitude = long
+        unit.latitude = lat
+        unit.mname = name
+        unit.save()
