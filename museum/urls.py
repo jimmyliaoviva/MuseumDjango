@@ -26,4 +26,5 @@ from django.conf.urls import include
 
 urlpatterns += [
     path('', include('main.urls')),
+    path('',include('auth.urls')),
 ]
