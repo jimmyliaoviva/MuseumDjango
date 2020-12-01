@@ -23,3 +23,11 @@ class Museum(models.Model):
     img = models.ImageField()
     nation = models.ForeignKey(Nation, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+'''
+class Comment(models.Model) :
+    commentid = models.AutoField(primary_key=True)
+    user = models.ForeignKey(django.contrib.auth.models.User,on_delete=models.CASCADE)
+    museum = models.ForeignKey(Museum,on_delete=models.CASCADE)
+    comment = models.CharField(max_length=1500)
+    commenttime = models.DateTimeField(auto_now=True)
+'''

@@ -31,17 +31,97 @@
             </div>
         </div>
         <hr>
+        <div class='input_area'>
+            <form action="/museum" method="post">
+                {% csrf_token %}
+                <label for="CommentTitle">我想說點什麼</label><br>
+                <input id="comment_content" type="text" name="comment_content" value="" style='width:90%;'>
+                <button id='send' type='button'>送出</button>
+            </form>
+        </div>
         <div class="row commentTitle">經驗分享</div>
-        <div class="commentBlock">
-            <div class="row comment">
-                <div class="imgWrapper headWrapper col-1">
-                    <img src="static/img/owl.png" alt="">
+        <div id="commentBlock" class="commentBlock">
+        <!--   {% for comment in all_comment.reverse %}
+                <div class="row comment">
+                    <div class="imgWrapper headWrapper col-1">
+                        <img src="static/img/owl.png" alt="">
+                    </div>
+                    <div id='test' class="col-10">
+                        <div class="userName">{{comment.user}}</div>
+                        <div class="commentContent">{{comment.comment}}</div>
+                    </div>            
                 </div>
-                <div class="col-10">
-                    <div class="userName">雷丘</div>
-                    <div class="commentContent">萬聖節快樂～</div>
-                </div>
-            </div>
+            {% endfor %}--> 
         </div>
     </div>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var orgcomment_leng = '{{all_comment|length}}'  //頁面初始comment筆數
+        $.ajax({
+            type: 'POST',
+            url: '/ajax_get_comment',
+            dataType:'json',
+            data: {
+                csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+            },
+            success: function(data){
+                for(var cid in data){
+                    $('#commentBlock').prepend('<div id="two_layer" class="row comment"><div class="imgWrapper headWrapper col-1"><img src="static/img/owl.png" alt=""></div><div id="test" class="col-10"><div class="userName">'+data[cid].user+'</div><div class="commentContent">'+data[cid].comment+'</div></div><button id="remove" class="remove" type="button" value="'+cid+'">刪除</button></div>')
+                }
+                
+            },
+        })
+        $("#commentBlock").on("click",".remove", function(){
+            var this_this = $(this)
+            $.ajax({
+                type: 'POST',
+                url: '/ajax_delete_comment',
+                data: {
+                    csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+                    delete_cid: $(this).attr('value'),
+                },
+                success: function(data){
+                    data=='success' ? this_this.parent('div').remove() : console.log('comment remove fail')
+                },
+            })
+        })
+        $("#send").click(function(){
+            var comment_content = $("#comment_content").val()
+            $("#comment_content").val("")
+            var shell = $('#commentBlock')
+            $.ajax({
+                type: 'POST',
+                url: '/museum',
+                dataType: 'json',
+                data: {
+                    csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+                    'comment_content': comment_content
+                },
+                success: function(data){
+                    /* 方法一
+                    var now_len = 0
+                    for(var count in data) {
+                        now_len++
+                    }
+                    var counter = 0 //暫存data的count數
+                    for(let key in data){
+                        if (counter++ > orgcomment_leng-1){
+                            $('#commentBlock').prepend('<div class="row comment"><div class="imgWrapper headWrapper col-1"><img src="static/img/owl.png" alt=""></div><div id="test" class="col-10"><div class="userName">'+data[key].user+'</div><div class="commentContent">'+data[key].comment+'</div></div><button id="remove" class="remove" type="button" value="'+key+'">刪除</button></div>')
+                        }
+                        //$('#col-10').prepend("<p>???</p>")
+                    }
+                    orgcomment_leng = now_len
+                    */
+
+                    // 方法二
+                    $('div.commentBlock').children().remove()
+                    for(let key in data) {
+                        $('#commentBlock').prepend('<div id="two_layer" class="row comment"><div class="imgWrapper headWrapper col-1"><img src="static/img/owl.png" alt=""></div><div id="test" class="col-10"><div class="userName">'+data[key].user+'</div><div class="commentContent">'+data[key].comment+'</div></div><button id="remove" class="remove" type="button" value="'+key+'">刪除</button></div>')
+                    }
+                }
+            })
+      });
+    });
+</script>
 {% endblock %}
