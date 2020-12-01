@@ -45,9 +45,9 @@
             {% for cmt in Comment %}
                 <div class="row comment">
                     <div class="imgWrapper headWrapper col-1">
-                        <img src="static/img/owl.png" alt="">
+                        <img src="{% static "img/owl.png" %}" alt="">
                     </div>
-                    <div class="col-10">
+                    <div class="col-11 contentWrapper">
 
                         <div class="userName">雷丘</div>
 
@@ -56,14 +56,19 @@
                     </div>
                 </div>
             {% endfor %}
-        {% if request.user.is_authenticated %}
-            <form action="" method="post">
-                {% csrf_token %}
-                <label for="SendComment">評論</label>
-                <input type="text" class="form-control" id="SendComment" name="SendComment">
-                <button type="submit" class="loginBtn btn btn-primary">送出</button>
-            </form>
-        {% endif %}
+            {% if request.user.is_authenticated %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="SendComment">評論</label>
+                    <input type="text" class="form-control" id="SendComment" name="SendComment">
+                    <button type="submit" class="loginBtn btn btn-primary">送出</button>
+                </form>
+            {% else %}
+                <div class="loginToComment row">
+                    <a class="loginToCommentBtn" href="" data-target="#loginPop"
+                       data-toggle="modal">登入並撰寫評論</a>
+                </div>
+            {% endif %}
         </div>
     </div>
 
