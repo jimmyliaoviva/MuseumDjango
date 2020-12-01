@@ -1,11 +1,13 @@
 from . import views
 from django.urls import path
+from comment.views import Comment
 
 urlpatterns = [
 
     path('', views.index, name='index'),
-    path('museums', views.museums),
+    path('museum/<int:pk>', views.museum),
+    # path(r'^(museums/(?P<pk>\d+))/$', views.museum),
     path('test/', views.test),
-    path('museum', views.museum)
+    path('museums', views.museums),
 
 ]

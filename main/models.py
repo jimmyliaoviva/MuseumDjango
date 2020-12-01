@@ -26,3 +26,4 @@ class Museum(models.Model):
     website = models.URLField(default=None, blank=True, max_length=500)
     nation = models.ForeignKey(Nation, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+

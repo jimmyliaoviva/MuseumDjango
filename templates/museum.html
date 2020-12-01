@@ -1,4 +1,5 @@
 {% extends 'master.html' %}
+
 {% block title %} 博物館頁面 {% endblock %}
 {% block css %}
     {% load static %}
@@ -11,37 +12,66 @@
 {#</head>#}
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col-6 imgWrapper museumWrapper">
-                <img src="{% static "img/palace.jpg" %}" alt="">
-            </div>
-            <div class="col-6 museum">
-                <div class="infoWrapper">
-                    <div class="museumName">國立故宮博物院</div>
-                    <div class="museumAddress">台北市士林區至善路二段221號</div>
+        {% for museum in MuseumDetail %}
+            <div class="row">
+                <div class="col-6 imgWrapper museumWrapper">
+                    <img src="{{ museum.img }}" alt="">
+                </div>
+
+                <div class="col-6 museum">
+                    <div class="infoWrapper">
+                        <div class="museumName">{{ museum.mname }}</div>
+                        <div class="museumAddress">{{ museum.address }}</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 introWrapper">
-            <div class="row museumIntro">
-                <div class="title">館方簡介：</div>
-                <div class="content">國立故宮博物院典藏為數近70萬件冊的藝術品和文物，藏品時間跨 度涵蓋新石器時代至今長達8,000年。當中以長篇銘文的青銅器、
-                    古代早期的名家書畫、善本古籍和官窯瓷器等蒐藏最具影響力。
+
+            <div class="col-12 introWrapper">
+                <div class="row museumIntro">
+                    <div class="title">館方簡介：</div>
+                    <div class="content">
+                        {{ museum.introduce }}
+
+                    </div>
                 </div>
             </div>
-        </div>
+            <iframe width="800" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                    src=https://maps.google.com.tw/maps?f=q&geocode=&q={{ museum.address }}&z=16&output=embed&t=></iframe>
+        {% endfor %}
         <hr>
+
         <div class="row commentTitle">經驗分享</div>
         <div class="commentBlock">
-            <div class="row comment">
-                <div class="imgWrapper headWrapper col-1">
-                    <img src="static/img/owl.png" alt="">
+            {% for cmt in Comment %}
+                <div class="row comment">
+                    <div class="imgWrapper headWrapper col-1">
+                        <img src="{% static "img/owl.png" %}" alt="">
+                    </div>
+                    <div class="col-11 contentWrapper">
+
+                        <div class="userName">雷丘</div>
+
+                        <div class="commentContent">{{ cmt.comment }}</div>
+
+                    </div>
                 </div>
-                <div class="col-10">
-                    <div class="userName">雷丘</div>
-                    <div class="commentContent">萬聖節快樂～</div>
+            {% endfor %}
+            {% if request.user.is_authenticated %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="SendComment">評論</label>
+                    <input type="text" class="form-control" id="SendComment" name="SendComment">
+                    <button type="submit" class="loginBtn btn btn-primary">送出</button>
+                </form>
+            {% else %}
+                <div class="loginToComment row">
+                    <a class="loginToCommentBtn" href="" data-target="#loginPop"
+                       data-toggle="modal">登入並撰寫評論</a>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </div>
+
+
 {% endblock %}
+
