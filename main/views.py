@@ -1,12 +1,7 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.views import generic
-from django.views.decorators.clickjacking import xframe_options_exempt
-
+from .models import Nation
 from .models import Museum
 from comment.models import Comment
-from itertools import chain
 
 
 def test(request):
@@ -14,7 +9,10 @@ def test(request):
 
 
 def index(request):
-    return render(request, 'index.html')
+    # all_country = Nation.objects.all()
+    # all_city = City.objects.all()
+    var = list()
+    return render(request, 'index.html', locals())
 
 
 # @xframe_options_exempt
@@ -25,8 +23,13 @@ def museum(request, pk):
     return render(request, 'museum.html', context)
 
 
-#
-
-
 def museums(request):
     return render(request, 'museums.html')
+
+
+def add_nation_record(request):
+    a_record = Nation(nid=886, nname='台灣')
+    a_record.save()
+
+
+

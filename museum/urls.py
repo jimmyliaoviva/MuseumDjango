@@ -15,16 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# from main.views import add_nation_record, find_country
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('addN/', add_nation_record),
+    #path('', find_country),
 ]
 
 
 # 匯入各功能的url
+
 from django.conf.urls import include
 
 urlpatterns += [
     path('', include('main.urls')),
-    path('',include('auth.urls')),
+    path('', include('auth.urls')),
+    path('', include('comment.urls'))
 ]

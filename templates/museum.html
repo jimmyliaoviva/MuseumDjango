@@ -1,6 +1,7 @@
 {% extends 'master.html' %}
 
 {% block title %} 博物館頁面 {% endblock %}
+{% load static %}
 {% block css %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "css/all.min.css" %}">
@@ -41,37 +42,27 @@
         <hr>
 
         <div class="row commentTitle">經驗分享</div>
-        <div class="commentBlock">
-            {% for cmt in Comment %}
-                <div class="row comment">
-                    <div class="imgWrapper headWrapper col-1">
-                        <img src="{% static "img/owl.png" %}" alt="">
-                    </div>
-                    <div class="col-11 contentWrapper">
-
-                        <div class="userName">雷丘</div>
-
-                        <div class="commentContent">{{ cmt.comment }}</div>
-
-                    </div>
-                </div>
-            {% endfor %}
-            {% if request.user.is_authenticated %}
+        {% if request.user.is_authenticated %}
+            <div class='input_area'>
                 <form action="" method="post">
                     {% csrf_token %}
-                    <label for="SendComment">評論</label>
-                    <input type="text" class="form-control" id="SendComment" name="SendComment">
-                    <button type="submit" class="loginBtn btn btn-primary">送出</button>
+                    <label for="CommentTitle">我想說點什麼</label><br>
+                    <input id="comment_content" type="text" name="comment_content" value="" style='width:90%;'>
+                    <button id='send' type='button'>送出</button>
                 </form>
-            {% else %}
-                <div class="loginToComment row">
-                    <a class="loginToCommentBtn" href="" data-target="#loginPop"
-                       data-toggle="modal">登入並撰寫評論</a>
-                </div>
-            {% endif %}
+            </div>
+        {% else %}
+            <div class="loginToComment row">
+                <a class="loginToCommentBtn" href="" data-target="#loginPop"
+                   data-toggle="modal">登入並撰寫評論</a>
+            </div>
+        {% endif %}
+        <div id="commentBlock" class="commentBlock">
         </div>
     </div>
-
-
+    {#    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>#}
 {% endblock %}
 
+{% block script %}
+    <script src="{% static "js/museum.js" %}"></script>
+{% endblock %}
