@@ -6,4 +6,5 @@ urlpatterns = [
     path('museum/<int:pk>', views.museum),
     path('test/', views.test),
     path('museums', views.museums),
+    path('ajax_get_city', views.ajax_get_city),
 ]

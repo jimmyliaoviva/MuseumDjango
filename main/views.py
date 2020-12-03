@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import Nation
+from .models import Nation, City
 from .models import Museum
 from comment.models import Comment
+from django.http import HttpResponse, JsonResponse  # 新增jsonresponse，協助評論ajax傳值
 
 
 def test(request):
@@ -9,7 +10,7 @@ def test(request):
 
 
 def index(request):
-    # all_country = Nation.objects.all()
+    all_country = Nation.objects.all()
     # all_city = City.objects.all()
     var = list()
     return render(request, 'index.html', locals())
@@ -32,4 +33,12 @@ def add_nation_record(request):
     a_record.save()
 
 
+def ajax_get_city(request):
+    nation = request.GET['nation']
+    all_city = City.objects.filter(nation=Nation.objects.get(nid=nation))
 
+    # ajax回傳最新comment給前端渲染
+    all = {}
+    for city in all_city:
+        all[city.cid] = {'id': city.cid, 'city': city.cname}
+    return JsonResponse(all, safe=False)
