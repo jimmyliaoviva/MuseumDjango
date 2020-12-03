@@ -9,3 +9,6 @@ class Comment(models.Model) :
     museum = models.ForeignKey(main.models.Museum,on_delete=models.CASCADE)
     comment = models.CharField(max_length=1500)
     commenttime = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('commenttime',)

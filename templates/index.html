@@ -43,19 +43,21 @@
     <div class="mask"></div>
     <div class="searchWrapper">
         <div class="searchTitle">你想去哪裡？</div>
+        <p>{{ nation }}</p>
         <div class="outerWrapper">
             <div class="countryWrapper">
                 <label for="countrySearch">國家</label>
                 <label for="citySearch">城市</label>
                 <br>
                 <select name="country" class="countrySearch" id="">
-                    <option value="台灣">台灣</option>
+                    <option value=""></option>
+                    {% for country in all_country %}
+                        <option value="{{ country.nid }}">{{ country.nname }}</option>
+                    {% endfor %}
                 </select>
                 <select name="city" class="citySearch" id="">
-                    <option value="台北">台北</option>
+                    <option value=""></option>
                 </select>
-                {#                <input type="text" name="countrySearch" class="countrySearch" value="">#}
-                {#                <input type="text" name="citySearch" class="citySearch" value="">#}
             </div>
             <i class="fas fa-search"></i>
         </div>
