@@ -44,7 +44,7 @@ nav h4 {
 }
 
 .countryWrapper {
-    width: 90%;
+    width: 100%;
     text-align: left;
 }
 
@@ -81,7 +81,7 @@ input:focus {
 }
 
 .museumWrapper {
-    width: 90%;
+    width: 93%;
     height: 96px;
     text-align: left;
 }
@@ -98,6 +98,8 @@ input:focus {
     line-height: 60px;
     color: #5A3919;
     font-size: 3em;
+    border: none;
+    background-color: transparent;
 }
 
 #loginPop {
