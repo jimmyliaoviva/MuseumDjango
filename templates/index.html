@@ -42,34 +42,37 @@
     {#    遮罩#}
     <div class="mask"></div>
     <div class="searchWrapper">
-        <div class="searchTitle">你想去哪裡？</div>
-        <p>{{ nation }}</p>
-        <div class="outerWrapper">
-            <div class="countryWrapper">
-                <label for="countrySearch">國家</label>
-                <label for="citySearch">城市</label>
-                <br>
-                <select name="country" class="countrySearch" id="">
-                    <option value=""></option>
-                    {% for country in all_country %}
-                        <option value="{{ country.nid }}">{{ country.nname }}</option>
-                    {% endfor %}
-                </select>
-                <select name="city" class="citySearch" id="">
-                    <option value=""></option>
-                </select>
+        <form action="/museums" method="post">
+            <div class="searchTitle">你想去哪裡？</div>
+            <p>{{ nation }}</p>
+            <div class="outerWrapper">
+                <div class="countryWrapper">
+                    <label for="countrySearch">國家</label>
+                    <label for="citySearch">城市</label>
+                    <br>
+                    <select name="countrySearch" class="countrySearch" id="">
+                        <option value=""></option>
+                        {% for country in all_country %}
+                            <option value="{{ country.nid }}">{{ country.nname }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="citySearch" class="citySearch" id="">
+                        <option value=""></option>
+                    </select>
+                </div>
+                {#            <i class="fas fa-search"></i>#}
             </div>
-            <i class="fas fa-search"></i>
-        </div>
-        <br>
-        <div class="outerWrapper">
-            <div class="museumWrapper">
-                <label for="museumSearch">博物館名稱</label>
-                <br>
-                <input type="text" class="museumSearch" value=""/>
+            <br>
+            <div class="outerWrapper">
+                <div class="museumWrapper">
+                    <label for="museumSearch">博物館名稱</label>
+                    <br>
+                    <input type="text" class="museumSearch" name="museumSearch" value=""/>
+                </div>
+                {% csrf_token %}
+                <button type="submit" class="fas fa-search"></button>
             </div>
-            <i class="fas fa-search"></i>
-        </div>
+        </form>
     </div>
 
 
