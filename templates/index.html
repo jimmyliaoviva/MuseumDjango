@@ -26,7 +26,11 @@
                 {#            這邊保留給登入系統#}
                 <li class="nav-item mr-5 mt-2">
                     {% if request.user.is_authenticated %}
-                        <a class="navbar-brand " href="accounts/logout" tabindex="-1" aria-disabled="true"><h4>登出</h4>
+                        <a class="navbar-brand " href="" tabindex="-1" aria-disabled="true" data-target="#account_edit" data-toggle="modal">
+                            <h4>修改帳戶</h4>
+                        </a>
+                        <a class="navbar-brand " href="accounts/logout" tabindex="-1" aria-disabled="true">
+                            <h4>登出</h4>
                         </a>
                     {% else %}
                         <a class="navbar-brand " href="" tabindex="-1" aria-disabled="true" data-target="#loginPop"

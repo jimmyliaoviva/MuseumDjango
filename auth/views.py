@@ -2,7 +2,7 @@ from django.shortcuts import render
 import django.contrib.auth as auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -44,3 +44,36 @@ def register(request):
     user = auth.authenticate(username=username, password=password)
     auth.login(request, user)
     return HttpResponseRedirect(redirect_to)
+
+def edit_name(request):
+    from django.conf import settings
+    try:
+        new_name = request.POST.get('edit_name')
+        this_user = User.objects.get(id=request.user.id)
+        this_user.username = new_name
+        this_user.save()
+        return redirect('/')
+    except:
+        print('名稱重複，請用其他名稱')
+        return redirect('/')
+    
+
+def edit_pass(request):
+    new_password = request.POST.get('edit_pass')
+    this_user = User.objects.get(id=request.user.id)
+    this_user.set_password(new_password)
+    this_user.save()
+    return redirect('/')
+
+def edit_all(request):
+    try:
+        new_name = request.POST.get('edit_name')
+        new_password = request.POST.get('edit_pass')
+        this_user = User.objects.get(id=request.user.id)
+        this_user.username = new_name
+        this_user.save()
+        this_user.set_password(new_password)
+        this_user.save()
+        return redirect('/')
+    except:
+        return redirect('/')
