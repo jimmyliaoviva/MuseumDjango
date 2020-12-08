@@ -11,32 +11,37 @@
 {#</head>#}
 {% block content %}
     <div class="container">
-        <div class="item row">
-            <div class="imgWrapper col-2 block1"></div>
-            <div class="col-3 block">
-                <span class="wordtext">國立故宮博物院</span>
+        {% for museum in SearchResult %}
+            <div class="item row">
+                <div class="imgWrapper col-2 block1">
+                    <img src="{{ museum.img }}" alt="">
+                </div>
+                <div class="col-3 block">
+                    <div class="museumName">{{ museum.mname }}</div>
+                </div>
+                <div class="col-6 block">
+                    <div class="icon"><i class="fas fa-compass"></i></div>
+                    <div class="museumAddress">{{ museum.address }}</div>
+                </div>
+                <div class="arrowBlock col-1 block">
+                    <i class="far fa-arrow-alt-circle-right "></i>
+                </div>
             </div>
-            <div class="col-6 block">
-                <div class="icon"><i class="fas fa-compass"></i></div>
-                <div class="address"><span>台北市士林區至善路二段221號</span></div>
-            </div>
-            <div class="arrowBlock col-1 block">
-                <i class="far fa-arrow-alt-circle-right "></i>
-            </div>
-        </div>
-        {#        #}
-        <div class="item row">
-            <div class="imgWrapper col-2 block1"></div>
-            <div class="col-3 block">
-                <span class="wordtext">國立故宮博物院</span>
-            </div>
-            <div class="col-6 block">
-                <div class="icon"><i class="fas fa-compass"></i></div>
-                <div class="address"><span>台北市士林區至善路二段221號</span></div>
-            </div>
-            <div class="arrowBlock col-1 block">
-                <i class="far fa-arrow-alt-circle-right "></i>
-            </div>
-        </div>
+            {#        #}
+{#            <div class="item row">#}
+{#                <div class="imgWrapper col-2 block1"></div>#}
+{#                <div class="col-3 block">#}
+{#                    <span class="wordtext">國立故宮博物院</span>#}
+{#                </div>#}
+{#                <div class="col-6 block">#}
+{#                    <div class="icon"><i class="fas fa-compass"></i></div>#}
+{#                    <div class="address"><span>台北市士林區至善路二段221號</span></div>#}
+{#                </div>#}
+{#                <div class="arrowBlock col-1 block">#}
+{#                    <i class="far fa-arrow-alt-circle-right "></i>#}
+{#                </div>#}
+{#            </div> #}
+        {% endfor %}
     </div>
-{% endblock %}
+
+    {% endblock %}
