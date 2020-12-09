@@ -25,9 +25,9 @@ def museum(request, pk):
 
 #search
 def museums(request):
-    museumsearchnation = request.POST.get('countrySearch', '')
-    museumsearchcity = request.POST.get('citySearch', '')
-    museumsearch = request.POST.get('museumSearch', '')
+    museumsearchnation = request.GET.get('countrySearch', '')
+    museumsearchcity = request.GET.get('citySearch', '')
+    museumsearch = request.GET.get('museumSearch', '')
     if museumsearchnation != '':
         if museumsearchcity != '':
             if museumsearch != '':
