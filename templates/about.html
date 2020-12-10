@@ -1,6 +1,6 @@
 {% extends 'master.html' %}
 
-{% block title %} 博物館頁面 {% endblock %}
+{% block title %} 關於我們 {% endblock %}
 {% load static %}
 {% block css %}
     {% load static %}
@@ -58,35 +58,11 @@
             </div>
         {% endif %}
         <div id="commentBlock" class="commentBlock">
-            {#            testing#}
-            <div id="two_layer" class="row comment">
-                <div class="imgWrapper headWrapper col-1"><img src="../static/img/owl.png" alt=""></div>
-                <div id="test" class="col-10">
-
-                    <div class="userName">' + data[cid].user + '
-                        <button id="remove" class="remove" type="button"
-                                value="' + cid + '">刪除
-                        </button>
-                        <button id="edit">修改</button>
-                        <span class="time">' + data[cid].commentTime + '</span>
-                    </div>
-                    <div class="commentContent">' + data[cid].comment + '</div>
-                </div>
-            </div>
-            {#            testing#}
         </div>
     </div>
     {#    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>#}
 {% endblock %}
 
 {% block script %}
-    <script>
-        var pk =
-        {{ pk }}
-        var userId =
-            {{ request.user.id }}
-            console.log(userId)
-    </script>
-
     <script src="{% static "js/museum.js" %}"></script>
 {% endblock %}
