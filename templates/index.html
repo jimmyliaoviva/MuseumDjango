@@ -26,6 +26,9 @@
                 {#            這邊保留給登入系統#}
                 <li class="nav-item mr-5 mt-2">
                     {% if request.user.is_authenticated %}
+                        <a class="navbar-brand " href="" tabindex="-1" aria-disabled="true" data-target="#account_edit" data-toggle="modal">
+                            <h4>修改帳戶</h4>
+                        </a>
                         <a class="navbar-brand " href="accounts/logout" tabindex="-1" aria-disabled="true"><h4>登出</h4>
                         </a>
                     {% else %}
@@ -42,7 +45,7 @@
     {#    遮罩#}
     <div class="mask"></div>
     <div class="searchWrapper">
-        <form action="/museums" method="post">
+        <form action="/museums" method="get">
             <div class="searchTitle">你想去哪裡？</div>
             <p>{{ nation }}</p>
             <div class="outerWrapper">
@@ -60,7 +63,6 @@
                         <option value=""></option>
                     </select>
                 </div>
-                {#            <i class="fas fa-search"></i>#}
             </div>
             <br>
             <div class="outerWrapper">
@@ -69,7 +71,6 @@
                     <br>
                     <input type="text" class="museumSearch" name="museumSearch" value=""/>
                 </div>
-                {% csrf_token %}
                 <button type="submit" class="fas fa-search"></button>
             </div>
         </form>

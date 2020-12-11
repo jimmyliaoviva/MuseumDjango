@@ -31,9 +31,25 @@ def museum(request, pk):
     return render(request, 'museum.html', context)
 
 
-# 博物館搜尋結果頁面
 def museums(request):
-    return render(request, 'museums.html')
+    museumsearchnation = request.GET.get('countrySearch', '')
+    museumsearchcity = request.GET.get('citySearch', '')
+    museumsearch = request.GET.get('museumSearch', '')
+    if museumsearchnation != '':
+        if museumsearchcity != '':
+            if museumsearch != '':
+                museumsearchresult = Museum.objects.filter(city=museumsearchcity,mname__icontains=museumsearch)
+            else :
+                museumsearchresult = Museum.objects.filter(city=museumsearchcity)
+        else:
+            if museumsearch != '':
+                museumsearchresult = Museum.objects.filter(nation=museumsearchnation,mname__icontains=museumsearch)
+            else:
+                museumsearchresult = Museum.objects.filter(nation=museumsearchnation)
+    else:
+        museumsearchresult = Museum.objects.filter(mname__icontains=museumsearch)
+    context = {"SearchResult": museumsearchresult}
+    return render(request, 'museums.html', context)
 
 
 # def add_nation_record(request):

@@ -41,3 +41,62 @@ img {
     height: 50px;
     width: 53px;
 }
+
+.edit_but {
+    border:0;
+    background-color: #D26900;
+    color:#000000;
+    border-radius:5px;
+    cursor:pointer;
+    text-align: center;
+}
+
+.edit_but:hover {
+    color:#D26900;
+    background-color:#fff;
+    border:2px #D26900 solid;
+}
+
+.edit_modal_logo {
+    height: 50px;
+    width: 53px;
+}
+
+.logo_container {
+    text-align: center;
+}
+
+.chosebar_container {
+    text-align: center;
+    margin:5px
+}
+
+.title_css {
+    margin: 5px;
+}
+
+.but_area {
+    margin: 10px;
+}
+
+.note {
+    float: left;
+    font-size: 15px;
+    text-align: center;
+}
+
+.input_bar {
+    outline:medium;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.send_but {
+    margin: 10px;
+    border: 0;
+    background-color: #D26900;
+    border-radius: 5px;
+    cursor:pointer;
+    text-align: center;
+}

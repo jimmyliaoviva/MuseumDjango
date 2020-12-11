@@ -1,7 +1,8 @@
 from django.shortcuts import render
 import django.contrib.auth as auth
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -44,3 +45,39 @@ def register(request):
     user = auth.authenticate(username=username, password=password)
     auth.login(request, user)
     return HttpResponseRedirect(redirect_to)
+
+
+def edit_name(request):
+    new_name = request.POST.get('name')
+    try:
+        this_user = User.objects.get(id=request.user.id)
+        this_user.username = new_name
+        this_user.save()
+        return HttpResponse(True)
+    except:
+        return HttpResponse(False)  
+
+
+def edit_pass(request):
+    new_password = request.POST.get('password')
+    try:
+        this_user = User.objects.get(id=request.user.id)
+        this_user.set_password(new_password)
+        this_user.save()
+        return HttpResponse(True)
+    except:
+        return HttpResponse(False)
+
+
+def edit_all(request):
+    new_name = request.POST.get('name')
+    new_password = request.POST.get('password')    
+    try:
+        this_user = User.objects.get(id=request.user.id)
+        this_user.username = new_name
+        this_user.save()
+        this_user.set_password(new_password)
+        this_user.save()
+        return HttpResponse(True)
+    except:
+        return HttpResponse(False)
