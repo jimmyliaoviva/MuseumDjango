@@ -59,8 +59,8 @@ def edit_name(request):
 
 
 def edit_pass(request):
+    new_password = request.POST.get('password')
     try:
-        new_password = request.POST.get('password')
         this_user = User.objects.get(id=request.user.id)
         this_user.set_password(new_password)
         this_user.save()
@@ -70,9 +70,9 @@ def edit_pass(request):
 
 
 def edit_all(request):
+    new_name = request.POST.get('name')
+    new_password = request.POST.get('password')    
     try:
-        new_name = request.POST.get('name')
-        new_password = request.POST.get('password')
         this_user = User.objects.get(id=request.user.id)
         this_user.username = new_name
         this_user.save()
