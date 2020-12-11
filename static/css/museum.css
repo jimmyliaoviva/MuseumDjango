@@ -94,6 +94,30 @@ img {
     color: #5A3919;
     text-decoration: underline;
 }
+
+
+button {
+    border: none;
+    background-color: transparent;
+
+}
+
+.time {
+    float: right;
+}
+
+#editBlock {
+    display: none;
+}
+
+.commentTextarea {
+    width: 100%;
+}
+
+#saveBtn {
+    float: right;
+}
+
 /*=======*/
 /*.input_comment {*/
 /*    width: 500px;*/
