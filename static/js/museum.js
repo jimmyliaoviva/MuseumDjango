@@ -13,9 +13,8 @@ $(document).ready(function () {
             appendComment(data)
         },
     })
+
     // 按下刪除留言
-
-
     $("#commentBlock").on("click", ".remove", function () {
         var this_this = $(this)
         $.ajax({

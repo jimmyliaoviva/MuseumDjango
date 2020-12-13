@@ -14,7 +14,7 @@
         {% for museum in SearchResult %}
             <div class="item row">
                 <div class="imgWrapper col-2 block1">
-                    <img src="{{ museum.img }}" alt="">
+                    <img class="test" src="{{ museum.img }}" alt="">
                 </div>
                 <div class="col-3 block">
                     <div class="museumName">{{ museum.mname }}</div>
@@ -24,10 +24,13 @@
                     <div class="museumAddress">{{ museum.address }}</div>
                 </div>
                 <div class="arrowBlock col-1 block">
-                    <i class="far fa-arrow-alt-circle-right "></i>
+                    <button class="far fa-arrow-alt-circle-right" id="goToMuseum" value="{{ museum.cid }}"></button>
                 </div>
             </div>
         {% endfor %}
     </div>
 
     {% endblock %}
+{% block script %}
+        <script src="{% static "js/museums.js" %}"></script>
+{% endblock %}
