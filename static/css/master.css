@@ -1,8 +1,9 @@
+/* navbar  */
 .navbar-brand img {
     height: 50px;
 }
 
-
+/* whole page setting */
 .container {
     border: 2px brown;
     margin-right: auto;
@@ -10,7 +11,7 @@
     padding-right: 15px;
     padding-left: 15px;
     width: 100%;
-    max-width: 1140px;/*隨螢幕尺寸而變，當螢幕尺寸 ≥ 1200px 時是 1140px。*/
+    max-width: 1140px; /*隨螢幕尺寸而變，當螢幕尺寸 ≥ 1200px 時是 1140px。*/
 }
 
 body {
@@ -43,18 +44,18 @@ img {
 }
 
 .edit_but {
-    border:0;
+    border: 0;
     background-color: #D26900;
-    color:#000000;
-    border-radius:5px;
-    cursor:pointer;
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
     text-align: center;
 }
 
 .edit_but:hover {
-    color:#D26900;
-    background-color:#fff;
-    border:2px #D26900 solid;
+    color: #D26900;
+    background-color: #fff;
+    border: 2px #D26900 solid;
 }
 
 .edit_modal_logo {
@@ -68,7 +69,7 @@ img {
 
 .chosebar_container {
     text-align: center;
-    margin:5px
+    margin: 5px
 }
 
 .title_css {
@@ -86,7 +87,7 @@ img {
 }
 
 .input_bar {
-    outline:medium;
+    outline: medium;
     border-top: 0;
     border-left: 0;
     border-right: 0;
@@ -97,6 +98,45 @@ img {
     border: 0;
     background-color: #D26900;
     border-radius: 5px;
-    cursor:pointer;
+    cursor: pointer;
     text-align: center;
+}
+
+/* login & popups */
+#loginPop {
+    text-align: center;
+}
+
+.popImgWrapper {
+    width: 100%;
+}
+
+.popImgWrapper img {
+    height: 50px;
+}
+
+.modal-dialog {
+    width: 30%;
+    color: #5A3919;
+}
+
+.modal-body {
+    padding: 0 5em 2em 5em;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.loginBtn {
+    width: 100%;
+    border-radius: 999em;
+    background-color: #D7CEC7;
+    border: none;
+    color: #5A3919;
+    font-weight: 700;
+}
+
+.edit .modal-dialog {
+    width: 50%;
 }

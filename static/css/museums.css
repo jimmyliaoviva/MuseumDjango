@@ -30,6 +30,13 @@
     overflow: hidden;
 }
 
+.noResult {
+    height: 90vh;
+    width: auto;
+    /*width:90%;*/
+    margin: auto;
+}
+
 .block {
     display: flex;
     justify-content: center;

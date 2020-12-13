@@ -52,9 +52,6 @@ def museums(request):
     return render(request, 'museums.html', context)
 
 
-# def add_nation_record(request):
-#     a_record = Nation(nid=886, nname='台灣')
-#     a_record.save()
 
 # 首頁下拉選單的城市抓取
 def ajax_get_city(request):
