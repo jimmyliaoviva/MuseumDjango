@@ -3,6 +3,7 @@ from .models import Nation, City
 from .models import Museum
 from comment.models import Comment
 from django.http import HttpResponse, JsonResponse  # 新增jsonresponse，協助評論ajax傳值
+from django.core.paginator import Paginator
 
 
 # 測試用
@@ -35,22 +36,27 @@ def museums(request):
     museumsearchnation = request.GET.get('countrySearch', '')
     museumsearchcity = request.GET.get('citySearch', '')
     museumsearch = request.GET.get('museumSearch', '')
+    page_number = request.GET.get('page')
     if museumsearchnation != '':
         if museumsearchcity != '':
             if museumsearch != '':
-                museumsearchresult = Museum.objects.filter(city=museumsearchcity,mname__icontains=museumsearch)
-            else :
+                museumsearchresult = Museum.objects.filter(city=museumsearchcity, mname__icontains=museumsearch)
+            else:
                 museumsearchresult = Museum.objects.filter(city=museumsearchcity)
         else:
             if museumsearch != '':
-                museumsearchresult = Museum.objects.filter(nation=museumsearchnation,mname__icontains=museumsearch)
+                museumsearchresult = Museum.objects.filter(nation=museumsearchnation, mname__icontains=museumsearch)
             else:
                 museumsearchresult = Museum.objects.filter(nation=museumsearchnation)
     else:
         museumsearchresult = Museum.objects.filter(mname__icontains=museumsearch)
-    context = {"SearchResult": museumsearchresult}
-    return render(request, 'museums.html', context)
-
+    paginator = Paginator(museumsearchresult, 25)
+    searchResult = museumsearchresult
+    page_obj = paginator.get_page(page_number)
+    # context = {"SearchResult": museumsearchresult}
+    url = "museums?countrySearch=" + museumsearchnation + "&citySearch=" + museumsearchcity + "&museumSearch=" + museumsearch
+    result = {'page_obj': page_obj, 'searchResult': searchResult, 'url': url}
+    return render(request, 'museums.html', result)
 
 
 # 首頁下拉選單的城市抓取
