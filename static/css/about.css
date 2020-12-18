@@ -1,0 +1,13 @@
+.imgWrapper {
+    width: 30%;
+}
+
+img {
+    width: 100%;
+}
+
+.title {
+    color: #5A3919;
+    font-size: 2em;
+    line-height: 1;
+}

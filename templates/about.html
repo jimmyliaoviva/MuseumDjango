@@ -5,6 +5,8 @@
 {% block css %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "css/all.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/about.css" %}">
+
 
     <link rel="stylesheet" href="{% static "css/museum.css" %}">
 {% endblock %}
@@ -13,54 +15,22 @@
 {#</head>#}
 {% block content %}
     <div class="container">
-        {% for museum in MuseumDetail %}
-            <div class="row">
-                <div class="col-6 imgWrapper museumWrapper">
-                    <img src="{{ museum.img }}" alt="">
-                </div>
-
-                <div class="col-6 museum">
-                    <div class="infoWrapper">
-                        <div class="museumName">{{ museum.mname }}</div>
-                        <div class="museumAddress">{{ museum.address }}</div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="imgWrapper col-6 ">
+                <img src="{% static "img/logo.png" %}" alt="">
             </div>
+            <div class="aboutContent col-6">
+                <p class="title">無處可去？</p>
+                <p class="title">就來FINDMUSE找尋屬於你的博物館</p>
+                <p>
+                    FINDMUSE — Find your museum — 是為解決博物館資料分散問題而誕生，我們的願景是所有旅客到世界各地皆能輕鬆找到博物館感受當地的藝術文化。
 
-            <div class="col-12 introWrapper">
-                <div class="row museumIntro">
-                    <div class="title">館方簡介：</div>
-                    <div class="content">
-                        {{ museum.introduce }}
-
-                    </div>
-                </div>
+                    FINDMUSE提供一站式的博物館搜索，提供各國博物館基本資訊，並提供評論區讓會員互相分享資訊，協助旅客創造一趟富含藝術氣息的旅程。
+                </p>
             </div>
-            <iframe width="800" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                    src=https://maps.google.com.tw/maps?f=q&geocode=&q={{ museum.address }}&z=16&output=embed&t=></iframe>
-        {% endfor %}
-        <hr>
-
-        <div class="row commentTitle">經驗分享</div>
-        {% if request.user.is_authenticated %}
-            <div class='input_area'>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <label for="CommentTitle">我想說點什麼</label><br>
-                    <input id="comment_content" type="text" name="comment_content" value="" style='width:90%;'>
-                    <button id='send' type='button'>送出</button>
-                </form>
-            </div>
-        {% else %}
-            <div class="loginToComment row">
-                <a class="loginToCommentBtn" href="" data-target="#loginPop"
-                   data-toggle="modal">登入並撰寫評論</a>
-            </div>
-        {% endif %}
-        <div id="commentBlock" class="commentBlock">
         </div>
+
     </div>
-    {#    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>#}
 {% endblock %}
 
 {% block script %}
