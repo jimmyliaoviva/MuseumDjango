@@ -34,7 +34,7 @@
 
             <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
                 <li class="nav-item mr-4 mt-2">
-                    <a class="navbar-brand" href="#"><h4>關於我們</h4></a>
+                    <a class="navbar-brand" href="{% url 'aboutUs' %}"><h4>關於我們</h4></a>
                 <li class="nav-item mr-5 mt-2">
                     {% if request.user.is_authenticated %}
                         <a class="navbar-brand " href="" tabindex="-1" aria-disabled="true" data-target="#account_edit"
