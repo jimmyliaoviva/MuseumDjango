@@ -12,7 +12,7 @@ services:
       - db
   db:
     image: mysql
-    container_name: mysql
+    container_name: djando_mysql
     hostname: mysql
     restart: always
     command: --default-authentication-plugin=mysql_native_password --mysqlx=0
