@@ -1,0 +1,29 @@
+version: "3"
+services:
+  web:
+    restart: always
+    build: .
+    command: bash -c "sleep 10 && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: mysql
+    container_name: mysql
+    hostname: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password --mysqlx=0
+    ports:
+      - 3307:3306
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_HOST=db 
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=museum
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=kevin5566
+      - MYSQL_ROOT_PASSWORD=kevin5566

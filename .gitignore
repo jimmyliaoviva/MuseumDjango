@@ -162,3 +162,7 @@ media/
 
 # Local History for Visual Studio Code
 .history/
+
+# Docker
+mysql/
+db/
