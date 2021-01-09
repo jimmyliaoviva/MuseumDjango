@@ -69,3 +69,19 @@ def ajax_get_city(request):
     for city in all_city:
         all[city.cid] = {'id': city.cid, 'city': city.cname}
     return JsonResponse(all, safe=False)
+
+
+from django.core import serializers
+
+
+def download(request):
+    all_nation = list(Nation.objects.all().only())
+    all_city = list(City.objects.all().only())
+    all_museum = list(Museum.objects.all().only())
+    all_comment = list(Comment.objects.all().only())
+    all_list_data = all_nation + all_city + all_museum + all_comment
+    all_data = serializers.serialize('json', all_list_data)
+    response = HttpResponse(content=all_data)
+    response['Content-Type'] = 'text/json'
+    response['Content-Disposition'] = 'attachment; filename="data.json"'
+    return response

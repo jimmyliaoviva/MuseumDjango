@@ -8,4 +8,5 @@ urlpatterns = [
     path('test/', views.test),
     path('museums', views.museums),
     path('ajax_get_city', views.ajax_get_city),
+    path('download', views.download, name='download')
 ]

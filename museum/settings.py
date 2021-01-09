@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'museum',
         'USER': 'root',
         'PASSWORD': 'kevin5566',
-        'HOST': 'jimmyviva.myddns.me',
+        'HOST': 'db',
         'PORT': '3306',
     }
 }

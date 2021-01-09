@@ -33,6 +33,10 @@
             </ul>
 
             <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
+                <li class="nav-item mr-5 mt-2">
+                    <a class="navbar-brand " href="" tabindex="-1" aria-disabled="true" data-target="#DownloadPop"
+                       data-toggle="modal"><h4>資料來源</h4></a>
+                </li>
                 <li class="nav-item mr-4 mt-2">
                     <a class="navbar-brand" href="{% url 'aboutUs' %}"><h4>關於我們</h4></a>
                 <li class="nav-item mr-5 mt-2">
@@ -162,6 +166,28 @@
                         {% csrf_token %}
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+{# 下載彈跳視窗 #}
+<div class="modal fade" id="DownloadPop" data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="popImgWrapper">
+                    <img class="logo" src="/static/img/logo.png" alt="">
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title" id="staticBackdropLabel">資料來源</h5>
+                <p>本網站資料來源為：</p>
+                <p><a href="https://dataportal.asia/home">dataportal</a> 與 <a href="https://opendata.culture.tw/frontsite/openData/detail?datasetId=290">文化部開放資料</a></p>
+                <h6><a href="/download">資料下載</a></h6>
             </div>
         </div>
     </div>
